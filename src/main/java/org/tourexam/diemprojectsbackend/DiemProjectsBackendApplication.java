@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class DiemProjectsBackendApplication {
+public class DiemprojectsBackendApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(DiemProjectsBackendApplication.class, args);
+        SpringApplication.run(DiemprojectsBackendApplication.class, args);
     }
 
 }
