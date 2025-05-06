@@ -1,8 +1,8 @@
-package org.tourexam.diemprojectsbackend.service;
+package org.exam.diemprojectsbackend.service;
 
 import org.springframework.stereotype.Service;
-import org.tourexam.diemprojectsbackend.model.Project;
-import org.tourexam.diemprojectsbackend.repository.ProjectRepository;
+import org.exam.diemprojectsbackend.model.Project;
+import org.exam.diemprojectsbackend.repository.ProjectRepository;
 
 @Service
 public class ProjectService {
