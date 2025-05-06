@@ -1,12 +1,12 @@
-package org.tourexam.diemprojectsbackend.controller;
+package org.exam.diemprojectsbackend.controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
-import org.tourexam.diemprojectsbackend.model.Project;
-import org.tourexam.diemprojectsbackend.service.ProjectService;
+import org.exam.diemprojectsbackend.model.Project;
+import org.exam.diemprojectsbackend.service.ProjectService;
 
 @RestController()
 public class ProjectController {

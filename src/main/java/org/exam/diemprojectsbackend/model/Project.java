@@ -1,4 +1,4 @@
-package org.tourexam.diemprojectsbackend.model;
+package org.exam.diemprojectsbackend.model;
 
 import jakarta.persistence.*;
 
