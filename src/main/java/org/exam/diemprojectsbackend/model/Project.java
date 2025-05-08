@@ -2,6 +2,8 @@ package org.exam.diemprojectsbackend.model;
 
 import jakarta.persistence.*;
 
+import java.time.LocalDate;
+
 @Entity
 public class Project {
     @Id
@@ -9,16 +11,23 @@ public class Project {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    private double estimatedTimeInHours;
-    private double estimatedCost;
+    private String projectTitle;
+    private String projectDescription;
+    private double budget;
+    private LocalDate startDate;
+    private LocalDate endDate;
 
-    public Project(double estimatedTimeInHours, double estimatedCost) {
-        this.estimatedTimeInHours = estimatedTimeInHours;
-        this.estimatedCost = estimatedCost;
-    }
 
     public Project() {
+    }
 
+    public Project(long id, String projectTitle, String projectDescription, double budget, LocalDate startDate, LocalDate endDate) {
+        this.id = id;
+        this.projectTitle = projectTitle;
+        this.projectDescription = projectDescription;
+        this.budget = budget;
+        this.startDate = startDate;
+        this.endDate = endDate;
     }
 
     public long getId() {
@@ -29,19 +38,44 @@ public class Project {
         this.id = id;
     }
 
-    public double getEstimatedTimeInHours() {
-        return estimatedTimeInHours;
+    public String getProjectTitle() {
+        return projectTitle;
     }
 
-    public void setEstimatedTimeInHours(double estimatedTimeInHours) {
-        this.estimatedTimeInHours = estimatedTimeInHours;
+    public void setProjectTitle(String projectTitle) {
+        this.projectTitle = projectTitle;
     }
 
-    public double getEstimatedCost() {
-        return estimatedCost;
+    public String getProjectDescription() {
+        return projectDescription;
     }
 
-    public void setEstimatedCost(double estimatedCost) {
-        this.estimatedCost = estimatedCost;
+    public void setProjectDescription(String projectDescription) {
+        this.projectDescription = projectDescription;
     }
+
+    public double getBudget() {
+        return budget;
+    }
+
+    public void setBudget(double budget) {
+        this.budget = budget;
+    }
+
+    public LocalDate getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(LocalDate startDate) {
+        this.startDate = startDate;
+    }
+
+    public LocalDate getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(LocalDate endDate) {
+        this.endDate = endDate;
+    }
+
 }
