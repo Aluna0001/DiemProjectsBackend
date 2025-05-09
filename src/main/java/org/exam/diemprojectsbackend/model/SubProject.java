@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 
 
 @Entity
-public class SubTask {
+public class SubProject {
     @Id
     @Column
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -13,16 +13,16 @@ public class SubTask {
 
 
     private String subProjectTitle;
-    private String projectDescription;
+    private String subProjectDescription;
 
-    public SubTask() {
+    public SubProject() {
 
     }
 
-    public SubTask(long id, String subProjectTitle, String projectDescription) {
+    public SubProject(long id, String subProjectTitle, String subProjectDescription) {
         this.id = id;
         this.subProjectTitle = subProjectTitle;
-        this.projectDescription = projectDescription;
+        this.subProjectDescription = subProjectDescription;
     }
 
     public long getId() {
@@ -41,11 +41,11 @@ public class SubTask {
         this.subProjectTitle = subProjectTitle;
     }
 
-    public String getProjectDescription() {
-        return projectDescription;
+    public String getSubProjectDescription() {
+        return subProjectDescription;
     }
 
-    public void setProjectDescription(String projectDescription) {
-        this.projectDescription = projectDescription;
+    public void setSubProjectDescription(String subProjectDescription) {
+        this.subProjectDescription = subProjectDescription;
     }
 }
