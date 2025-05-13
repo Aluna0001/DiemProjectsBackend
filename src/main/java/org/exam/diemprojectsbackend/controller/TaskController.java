@@ -1,6 +1,5 @@
 package org.exam.diemprojectsbackend.controller;
 
-import org.exam.diemprojectsbackend.model.Project;
 import org.exam.diemprojectsbackend.model.Task;
 import org.exam.diemprojectsbackend.service.TaskService;
 import org.springframework.http.HttpStatus;

@@ -8,9 +8,8 @@ import org.exam.diemprojectsbackend.service.ProjectService;
 
 import java.util.List;
 
+@CrossOrigin(origins = "*")
 @RestController()
-
-@RequestMapping("/projects")
 public class ProjectController {
 
     private final ProjectService projectService;
@@ -19,7 +18,6 @@ public class ProjectController {
         this.projectService = projectService;
     }
 
-
     // Create
     @PostMapping("/projects")
     @ResponseStatus(HttpStatus.CREATED)
@@ -27,25 +25,26 @@ public class ProjectController {
         return projectService.createProject(project);
     }
 
-
     // READ ALL
-    @GetMapping
+    @GetMapping("/projects")
     public ResponseEntity<List<Project>> getAllProjects() {
         return ResponseEntity.ok(projectService.getAllProjects());
     }
+
     // READ BY ID
-    @GetMapping("/{id}")
+    @GetMapping("/projects/{id}")
     public ResponseEntity<Project> getProjectById(@PathVariable long id) {
         return ResponseEntity.ok(projectService.getProjectById(id));
     }
 
     //update
-    @PutMapping("/{id}")
+    @PutMapping("/projects/{id}")
     public ResponseEntity<Project> updateProject(@PathVariable long id, @RequestBody Project project) {
         return ResponseEntity.ok(projectService.updateProject(id, project));
     }
+
     // DELETE
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/projects/{id}")
     public ResponseEntity<Void> deleteProject(@PathVariable long id) {
         projectService.deleteProject(id);
         return ResponseEntity.noContent().build();
