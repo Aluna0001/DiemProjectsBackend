@@ -1,8 +1,7 @@
 package org.exam.diemprojectsbackend.model;
 
-
 import jakarta.persistence.*;
-
+import java.util.List;
 
 @Entity
 public class SubProject {
@@ -11,12 +10,15 @@ public class SubProject {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-
     private String subProjectTitle;
     private String subProjectDescription;
+
     @ManyToOne
     @JoinColumn(name = "project_id") // Så kolonnen i databasen kommer til at hedde "project_id"
     private Project project;
+
+    @OneToMany(mappedBy = "subProject", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Task> tasks;
 
     public SubProject() {
 
@@ -58,5 +60,13 @@ public class SubProject {
 
     public void setProject(Project project) {
         this.project = project;
+    }
+
+    public List<Task> getTasks() {
+        return tasks;
+    }
+
+    public void setTasks(List<Task> tasks) {
+        this.tasks = tasks;
     }
 }

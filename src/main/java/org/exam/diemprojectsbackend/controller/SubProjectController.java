@@ -1,7 +1,7 @@
 package org.exam.diemprojectsbackend.controller;
 
-
 import org.exam.diemprojectsbackend.model.SubProject;
+import org.exam.diemprojectsbackend.model.Task;
 import org.exam.diemprojectsbackend.service.SubProjectService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,7 +12,6 @@ import java.util.List;
 @CrossOrigin(origins = "*")
 @RestController()
 @RequestMapping("/subprojects")
-
 public class SubProjectController {
     private final SubProjectService subProjectService;
 
@@ -37,7 +36,8 @@ public class SubProjectController {
     public ResponseEntity<SubProject> getSubTaskById(@PathVariable long id) {
         return ResponseEntity.ok(subProjectService.getSubProjectById(id));
     }
-// Update
+
+    // Update
     @PutMapping("/{id}")
     public ResponseEntity<SubProject> updateProject(@PathVariable long id, @RequestBody SubProject subTask) {
         return ResponseEntity.ok(subProjectService.updateSubProject(id, subTask));
@@ -50,4 +50,14 @@ public class SubProjectController {
         return ResponseEntity.noContent().build();
     }
 
+    @PostMapping("/{subProjectId}/tasks")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Task createTaskForSubProject(@PathVariable Long subProjectId, @RequestBody Task task) {
+        return subProjectService.createTaskForSubProject(subProjectId, task);
+    }
+
+    @GetMapping("/{subProjectId}/tasks")
+    public ResponseEntity<List<Task>> getTasksForSubProject(@PathVariable Long subProjectId) {
+        return ResponseEntity.ok(subProjectService.getTasksForSubProject(subProjectId));
+    }
 }

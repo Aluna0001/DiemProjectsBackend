@@ -1,6 +1,7 @@
 package org.exam.diemprojectsbackend.model;
 
 import jakarta.persistence.*;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Task {
@@ -16,6 +17,11 @@ public class Task {
     private double estimatedCost;
     private double spentCost;
     private String status;
+
+    @ManyToOne
+    @JoinColumn(name = "subproject_id")
+    @JsonIgnore
+    private SubProject subProject;
 
     public Task() {
 
@@ -94,5 +100,13 @@ public class Task {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public SubProject getSubProject() {
+        return subProject;
+    }
+
+    public void setSubProject(SubProject subProject) {
+        this.subProject = subProject;
     }
 }
