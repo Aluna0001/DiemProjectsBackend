@@ -7,7 +7,7 @@ import java.time.LocalDate;
 @Entity
 public class Project {
     @Id
-    @Column
+    @Column(name = "project_id") // Dette ændrer SQL-navnet men beholder "id" i Java
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 

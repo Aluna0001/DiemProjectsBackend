@@ -9,8 +9,10 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin(origins = "*")
 @RestController()
-@RequestMapping("/subtask")
+@RequestMapping("/subprojects")
+
 public class SubProjectController {
     private final SubProjectService subProjectService;
 
@@ -18,7 +20,7 @@ public class SubProjectController {
         this.subProjectService = subProjectService;
     }
 
-    @PostMapping("/subtasks")
+    @PostMapping()
     @ResponseStatus(HttpStatus.CREATED)
     public SubProject createSubProject(@RequestBody SubProject subProject) {
         return subProjectService.createSubProject(subProject);
@@ -47,4 +49,5 @@ public class SubProjectController {
         subProjectService.deleteSubProject(id);
         return ResponseEntity.noContent().build();
     }
+
 }

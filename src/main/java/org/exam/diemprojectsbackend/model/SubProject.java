@@ -7,13 +7,16 @@ import jakarta.persistence.*;
 @Entity
 public class SubProject {
     @Id
-    @Column
+    @Column(name = "subproject_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
 
     private String subProjectTitle;
     private String subProjectDescription;
+    @ManyToOne
+    @JoinColumn(name = "project_id") // Så kolonnen i databasen kommer til at hedde "project_id"
+    private Project project;
 
     public SubProject() {
 
@@ -47,5 +50,13 @@ public class SubProject {
 
     public void setSubProjectDescription(String subProjectDescription) {
         this.subProjectDescription = subProjectDescription;
+    }
+
+    public Project getProject() {
+        return project;
+    }
+
+    public void setProject(Project project) {
+        this.project = project;
     }
 }
