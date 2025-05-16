@@ -27,8 +27,7 @@ public class Task {
 
     }
   //skal lige høre om id skal være i constructeren
-    public Task(Long id, String title, String description, double estimatedTime, double spentTime, double estimatedCost, double spentCost, String status) {
-        this.id = id;
+    public Task(String title, String description, double estimatedTime, double spentTime, double estimatedCost, double spentCost, String status) {
         this.title = title;
         this.description = description;
         this.estimatedTime = estimatedTime;
